@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" name="name" id="name">
+    <br>
+    <input type="text" name="eye-color" id="eye-color">
+    <br>
+    <input type="text" name="age" id="age">
+    <br>
+    <button onclick="createPerson()">Create Person</button>
+
+    <p id="writePerson"></p>
+    <p id="object"></p>
+
+    <script>
+
+        function Person(name, eyeColor, age) {
+
+            this.name = name;
+            this.eyeColor = eyeColor;
+            this.age = age;
+
+        };
+        let newPerson;
+
+        function createPerson() {
+
+            let name = document.getElementById("name").value;
+            let eyeColor = document.getElementById("eye-color").value.toLowerCase();
+            let age = document.getElementById("age").value;
+
+            newPerson = new Person(name, eyeColor, age);
+
+            let writePerson = document.getElementById("writePerson");
+            let writeObject = document.getElementById("object");
+            writePerson.innerHTML = `My name is ${newPerson.name}, I have ${newPerson.eyeColor} eyes, and am ${newPerson.age} years old.`;
+            writeObject.innerHTML = Object.values(newPerson);
+
+        };
+
+
+
+    </script>
+
+</body>
+
+</html>
